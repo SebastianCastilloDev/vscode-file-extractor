@@ -47,6 +47,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "lint:watch": "nodemon --exec \"npm run lint\" --ext ts --watch src",
     "test": "node ./out/test/runTest.js",
     "package": "npx @vscode/vsce package",
     "package-new": "npx @vscode/vsce package",

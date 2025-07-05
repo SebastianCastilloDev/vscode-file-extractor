@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
-import { EXTENSION_CONFIG, COMMANDS } from '../config/constants';
+import { COMMANDS, EXTENSION_CONFIG } from '../config/constants';
 import { ExtractionOptions } from '../types/interfaces';
-import { getOpenFiles, extractFiles, getDocumentsToExtract } from '../utils/fileUtils';
+import { getDocumentsToExtract, getOpenFiles } from '../utils/fileUtils';
 import { getRelativePathFromWorkspace } from '../utils/pathUtils';
 
 /**
@@ -90,7 +90,7 @@ export class ExtractOpenFilesCommand {
     private static async extractWithClassicFormat(
         documentsToExtract: Array<{ uri: vscode.Uri; content: string }>,
         options: ExtractionOptions,
-        workspaceFolder: vscode.WorkspaceFolder
+        _workspaceFolder: vscode.WorkspaceFolder
     ): Promise<{ success: boolean; filesExtracted: number; outputPath: string; error?: string }> {
         try {
             const outputFilePath = `${options.outputDirectory}/${options.outputFileName}`;
@@ -147,7 +147,7 @@ ${relativePath}
  * Registra el comando en el contexto
  * Patrón: Factory Method para registro de comandos
  */
-    public static register(context: vscode.ExtensionContext): vscode.Disposable {
+    public static register(_context: vscode.ExtensionContext): vscode.Disposable {
         return vscode.commands.registerCommand(
             COMMANDS.extractOpenFiles,
             ExtractOpenFilesCommand.execute

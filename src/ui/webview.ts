@@ -1,15 +1,14 @@
 import * as vscode from 'vscode';
 import { EXTENSION_CONFIG } from '../config/constants';
-import { WebViewMessage, ExtractionOptions, WebViewState, ExtractionMode, DirectoryTreeNode } from '../types/interfaces';
+import { ExtractionMode, ExtractionOptions, WebViewMessage, WebViewState } from '../types/interfaces';
 import {
-    getOpenFiles,
     extractFiles,
-    getFolderFiles,
-    loadWorkspaceDirectoryTree,
     findNodeByPath,
-    updateNodeSelection,
+    getOpenFiles,
     getSelectedFilesFromTree,
-    loadDirectoryChildren
+    loadDirectoryChildren,
+    loadWorkspaceDirectoryTree,
+    updateNodeSelection
 } from '../utils/fileUtils';
 import { getRelativePathFromWorkspace } from '../utils/pathUtils';
 import { generateWebViewContent } from './templates';
@@ -116,29 +115,29 @@ export class FileExtractorWebView {
      */
     private async handleWebviewMessage(message: WebViewMessage): Promise<void> {
         switch (message.command) {
-        case 'extract':
-            await this.handleExtractCommand(message.selectedFiles || []);
-            break;
-        case 'refresh':
-            await this.handleRefreshCommand();
-            break;
-        case 'switchMode':
-            await this.handleSwitchModeCommand(message.mode || 'openFiles');
-            break;
-        case 'loadWorkspace':
-            await this.handleLoadWorkspaceCommand();
-            break;
-        case 'navigateToDirectory':
-            await this.handleNavigateToDirectoryCommand(message.directoryPath || '');
-            break;
-        case 'selectDirectory':
-            await this.handleSelectDirectoryCommand(message.directoryPath || '', message.isSelected || false);
-            break;
-        case 'toggleFolder':
-            await this.handleToggleFolderCommand(message.folderPath || '');
-            break;
-        default:
-            console.warn('Unknown webview message command:', message.command);
+            case 'extract':
+                await this.handleExtractCommand(message.selectedFiles || []);
+                break;
+            case 'refresh':
+                await this.handleRefreshCommand();
+                break;
+            case 'switchMode':
+                await this.handleSwitchModeCommand(message.mode || 'openFiles');
+                break;
+            case 'loadWorkspace':
+                await this.handleLoadWorkspaceCommand();
+                break;
+            case 'navigateToDirectory':
+                await this.handleNavigateToDirectoryCommand(message.directoryPath || '');
+                break;
+            case 'selectDirectory':
+                await this.handleSelectDirectoryCommand(message.directoryPath || '', message.isSelected || false);
+                break;
+            case 'toggleFolder':
+                await this.handleToggleFolderCommand(message.folderPath || '');
+                break;
+            default:
+                console.warn('Unknown webview message command:', message.command);
         }
     }
 

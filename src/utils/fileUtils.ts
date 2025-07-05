@@ -1,8 +1,8 @@
-import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as vscode from 'vscode';
 import { IGNORED_EXTENSIONS, IGNORED_PATH_PATTERNS } from '../config/constants';
-import { OpenFileInfo, DocumentToExtract, ExtractionOptions, ExtractionResult, FolderFileInfo, FolderInfo, DirectoryTreeNode } from '../types/interfaces';
+import { DirectoryTreeNode, DocumentToExtract, ExtractionOptions, ExtractionResult, FolderFileInfo, OpenFileInfo } from '../types/interfaces';
 
 /**
  * Obtiene el directorio de salida de forma inteligente
@@ -177,7 +177,6 @@ function updateDescendantsSelection(node: DirectoryTreeNode, isSelected: boolean
  */
 function updateParentSelection(parent: DirectoryTreeNode): void {
     const allChildrenSelected = parent.children.every(child => child.isSelected);
-    const someChildrenSelected = parent.children.some(child => child.isSelected);
 
     parent.isSelected = allChildrenSelected;
 
