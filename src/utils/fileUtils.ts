@@ -69,7 +69,7 @@ export function buildDirectoryTree(directoryPath: string, depth: number, maxDept
                     isSelected: false,
                     size: entry.isDirectory() ? 0 : stats.size,
                     depth,
-                    children: [],
+                    children: []
                 };
 
                 // Si es directorio y no estamos en profundidad máxima, cargar hijos
@@ -516,7 +516,7 @@ ${relativePath}
         return {
             success: true,
             filesExtracted: extractedCount,
-            outputPath: outputFilePath,
+            outputPath: outputFilePath
         };
 
     } catch (error) {
@@ -541,7 +541,7 @@ export async function getDocumentsToExtract(uris: vscode.Uri[]): Promise<Documen
             const document = await vscode.workspace.openTextDocument(uri);
             documents.push({
                 uri,
-                content: document.getText(),
+                content: document.getText()
             });
         } catch (error) {
             console.error(`Error al abrir documento ${uri.fsPath}:`, error);
@@ -549,4 +549,4 @@ export async function getDocumentsToExtract(uris: vscode.Uri[]): Promise<Documen
     }
 
     return documents;
-} 
+}

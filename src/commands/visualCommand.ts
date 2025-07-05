@@ -47,4 +47,4 @@ export class OpenVisualPanelCommand {
             () => OpenVisualPanelCommand.execute(context)
         );
     }
-} 
+}

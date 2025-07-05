@@ -88,4 +88,4 @@ export interface WebViewState {
     currentDirectory: string;
     selectedFiles: string[];
     selectedDirectories: string[];
-} 
+}

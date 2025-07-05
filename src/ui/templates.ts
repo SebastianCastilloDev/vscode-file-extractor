@@ -126,7 +126,7 @@ function generateTreeNodeHTML(node: DirectoryTreeNode): string {
         `;
     }
 
-    nodeHTML += `</div>`;
+    nodeHTML += '</div>';
     return nodeHTML;
 }
 
@@ -159,7 +159,7 @@ function generateHeaderHTML(state: WebViewState): string {
 
     const description = state.mode === 'openFiles'
         ? `Archivos abiertos en el editor (${state.openFiles.length} encontrados)`
-        : `Explora y selecciona archivos/carpetas del proyecto`;
+        : 'Explora y selecciona archivos/carpetas del proyecto';
 
     return `
     <div class="header">
@@ -639,4 +639,4 @@ function getWebViewScript(): string {
       }
     });
   `;
-} 
+}

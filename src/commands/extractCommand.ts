@@ -34,16 +34,16 @@ export class ExtractOpenFilesCommand {
             // Mostrar información de progreso
             await vscode.window.withProgress({
                 location: vscode.ProgressLocation.Notification,
-                title: "Extrayendo archivos...",
+                title: 'Extrayendo archivos...',
                 cancellable: false
             }, async (progress) => {
-                progress.report({ increment: 0, message: "Preparando archivos..." });
+                progress.report({ increment: 0, message: 'Preparando archivos...' });
 
                 // Obtener documentos a extraer
                 const uris = openFiles.map(file => file.uri);
                 const documentsToExtract = await getDocumentsToExtract(uris);
 
-                progress.report({ increment: 50, message: "Generando contenido..." });
+                progress.report({ increment: 50, message: 'Generando contenido...' });
 
                 // Configurar opciones de extracción
                 const options: ExtractionOptions = {
@@ -61,7 +61,7 @@ export class ExtractOpenFilesCommand {
                     workspaceFolder
                 );
 
-                progress.report({ increment: 100, message: "Completado" });
+                progress.report({ increment: 100, message: 'Completado' });
 
                 if (result.success) {
                     const relativeOutputPath = getRelativePathFromWorkspace(result.outputPath);
@@ -153,4 +153,4 @@ ${relativePath}
             ExtractOpenFilesCommand.execute
         );
     }
-} 
+}

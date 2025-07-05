@@ -116,29 +116,29 @@ export class FileExtractorWebView {
      */
     private async handleWebviewMessage(message: WebViewMessage): Promise<void> {
         switch (message.command) {
-            case 'extract':
-                await this.handleExtractCommand(message.selectedFiles || []);
-                break;
-            case 'refresh':
-                await this.handleRefreshCommand();
-                break;
-            case 'switchMode':
-                await this.handleSwitchModeCommand(message.mode || 'openFiles');
-                break;
-            case 'loadWorkspace':
-                await this.handleLoadWorkspaceCommand();
-                break;
-            case 'navigateToDirectory':
-                await this.handleNavigateToDirectoryCommand(message.directoryPath || '');
-                break;
-            case 'selectDirectory':
-                await this.handleSelectDirectoryCommand(message.directoryPath || '', message.isSelected || false);
-                break;
-            case 'toggleFolder':
-                await this.handleToggleFolderCommand(message.folderPath || '');
-                break;
-            default:
-                console.warn('Unknown webview message command:', message.command);
+        case 'extract':
+            await this.handleExtractCommand(message.selectedFiles || []);
+            break;
+        case 'refresh':
+            await this.handleRefreshCommand();
+            break;
+        case 'switchMode':
+            await this.handleSwitchModeCommand(message.mode || 'openFiles');
+            break;
+        case 'loadWorkspace':
+            await this.handleLoadWorkspaceCommand();
+            break;
+        case 'navigateToDirectory':
+            await this.handleNavigateToDirectoryCommand(message.directoryPath || '');
+            break;
+        case 'selectDirectory':
+            await this.handleSelectDirectoryCommand(message.directoryPath || '', message.isSelected || false);
+            break;
+        case 'toggleFolder':
+            await this.handleToggleFolderCommand(message.folderPath || '');
+            break;
+        default:
+            console.warn('Unknown webview message command:', message.command);
         }
     }
 
@@ -165,7 +165,7 @@ export class FileExtractorWebView {
         // Mostrar barra de progreso
         await vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
-            title: "Extrayendo archivos...",
+            title: 'Extrayendo archivos...',
             cancellable: false
         }, async (progress) => {
             progress.report({ increment: 0 });
@@ -376,4 +376,4 @@ export function createOrShowWebView(context: vscode.ExtensionContext): FileExtra
     };
 
     return currentWebView;
-} 
+}

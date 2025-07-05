@@ -2,7 +2,7 @@
 export const EXTENSION_CONFIG = {
     outputFileName: 'extracted_files.txt',
     webviewViewType: 'fileExtractor',
-    webviewTitle: '📁 File Extractor',
+    webviewTitle: '📁 File Extractor'
 } as const;
 
 // Extensiones de archivos ignoradas
@@ -26,7 +26,7 @@ export const IGNORED_EXTENSIONS = [
     '.rar',
     '.tar',
     '.gz',
-    '.7z',
+    '.7z'
 ] as const;
 
 // Patrones de rutas que queremos ignorar
@@ -38,11 +38,11 @@ export const IGNORED_PATH_PATTERNS = [
     '.git',
     'dist',
     'build',
-    '.vscode',
+    '.vscode'
 ] as const;
 
 // Comandos de la extensión
 export const COMMANDS = {
     extractOpenFiles: 'vscode-file-extractor.extractOpenFiles',
-    openVisualPanel: 'vscode-file-extractor.openVisualPanel',
-} as const; 
+    openVisualPanel: 'vscode-file-extractor.openVisualPanel'
+} as const;
