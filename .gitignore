@@ -149,7 +149,7 @@ __tests__/__snapshots__/
 # Package Manager Lock Files
 # ==========================================
 # Comment out if you want to keep lock files
-# package-lock.json
+package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
 
