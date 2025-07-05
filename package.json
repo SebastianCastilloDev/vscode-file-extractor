@@ -1,0 +1,51 @@
+{
+  "name": "vscode-file-extractor",
+  "displayName": "VS Code File Extractor",
+  "description": "Extract content from open files in VS Code",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-file-extractor.extractOpenFiles",
+        "title": "Extract Open Files to Text File"
+      },
+      {
+        "command": "vscode-file-extractor.openVisualPanel",
+        "title": "📁 Open Visual File Extractor"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "package-new": "npx @vscode/vsce package",
+    "build-and-package": "npm run compile && npm run package-new",
+    "clean": "./scripts/clean.sh",
+    "clean:all": "./scripts/clean.sh && npm install",
+    "rebuild": "npm run clean && npm run compile",
+    "check-ignored": "git status --ignored"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "@vscode/vsce": "^3.6.0",
+    "eslint": "^8.18.0",
+    "typescript": "^4.7.4",
+    "vsce": "^2.15.0"
+  }
+}
